@@ -34,14 +34,12 @@ var puzzleInput = [
 function opcode1_Addition(index1, index2){
     var value1 = puzzleInput[index1]
     var value2 = puzzleInput[index2]
-    console.log("opcode addition: " + value1 + " + " + value2 + "  = " + (puzzleInput[index1] + puzzleInput[index2]))
     return value1 + value2
 }
 
 function opcode2_Multiplication(index1, index2){  
     var value1 = puzzleInput[index1]
     var value2 = puzzleInput[index2]
-    console.log("opcode multiplication: " + value1 + " * " + value2 + "  = " + (puzzleInput[index1] * puzzleInput[index2]))
     return value1 * value2
 }
 
@@ -57,7 +55,6 @@ function readPuzzleInput(){
             
             case 2:
                 value = opcode2_Multiplication(puzzleInput[index+1], puzzleInput[index+2]);
-                
                 break;
 
             case 99:
@@ -65,7 +62,6 @@ function readPuzzleInput(){
         }
         puzzleInput[puzzleInput[index+3]] = value;
         index = index + 4;
-        
     }
 }
 

@@ -64,6 +64,9 @@ var modifiedPuzzleInput = [
     99,
     2,14,0,0];
 
+var noun = 100;
+var verb = 0;
+
 function opcode1_Addition(index1, index2){
     var value1 = modifiedPuzzleInput[index1]
     var value2 = modifiedPuzzleInput[index2]
@@ -80,7 +83,7 @@ function checkWithin99(){
     return modifiedPuzzleInput[0] <= 19690720 && (19690720 - 99) <= modifiedPuzzleInput[0];
 }
 
-function readPuzzleInput(){
+function testIntCode(){
     var index = 0;
     while(index < modifiedPuzzleInput.length - 3){
         var value;
@@ -102,23 +105,34 @@ function readPuzzleInput(){
     }
 }
 
+function updateNounInModdifiedPuzzleInputForFinalCheck(){
+    modifiedPuzzleInput[1] = noun;
+}
+
+function updateVerbInModdifiedPuzzleInputForFinalCheck(){
+    modifiedPuzzleInput[2] = verb;
+}
+
+function findDifferenceInTotalForVerb(){verb = 19690720 - modifiedPuzzleInput[0]}
+
 function resetModdifiedPuzzleInput(){ modifiedPuzzleInput = JSON.parse(JSON.stringify(puzzleInput));}
 
-var noun = 100;
-var verb = 0;
+function checkIfResultOfIntCodeIsEqualToResult(resultValue){if(modifiedPuzzleInput[0] == resultValue)console.log("The value of the noun is " + noun + " and the verb is " + verb);}
+
+function finalCheck(){
+    findDifferenceInTotalForVerb()
+    resetModdifiedPuzzleInput()
+    updateNounInModdifiedPuzzleInputForFinalCheck()
+    updateVerbInModdifiedPuzzleInputForFinalCheck()
+    testIntCode()
+    checkIfResultOfIntCodeIsEqualToResult(19690720)
+}
 
 while(!checkWithin99()){
     resetModdifiedPuzzleInput()
-    console.log("noun", noun)
+    // decrementing the noun inputted for the test
     modifiedPuzzleInput[1] = --noun;
-    readPuzzleInput()
+    testIntCode()
 }
 
-// Final Check
-verb = 19690720 - modifiedPuzzleInput[0]
-resetModdifiedPuzzleInput()
-modifiedPuzzleInput[1] = noun;
-modifiedPuzzleInput[2] = verb;
-readPuzzleInput()
-
-if(modifiedPuzzleInput[0] == 19690720)console.log("The value of the noun is " + noun + " and the verb is " + verb);
+finalCheck()

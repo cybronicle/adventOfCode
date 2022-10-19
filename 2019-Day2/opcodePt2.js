@@ -117,7 +117,14 @@ function findDifferenceInTotalForVerb(){verb = 19690720 - modifiedPuzzleInput[0]
 
 function resetModdifiedPuzzleInput(){ modifiedPuzzleInput = JSON.parse(JSON.stringify(puzzleInput));}
 
-function checkIfResultOfIntCodeIsEqualToResult(resultValue){if(modifiedPuzzleInput[0] == resultValue)console.log("The value of the noun is " + noun + " and the verb is " + verb);}
+function checkIfResultOfIntCodeIsEqualToResult(resultValue){
+    if(modifiedPuzzleInput[0] == resultValue){
+        console.log("The value of the noun is " + noun + " and the verb is " + verb);
+        console.log("Final value for the equation is " + evaluateTheEquation())
+    }
+}
+
+function evaluateTheEquation(){return (100 * noun) + verb}
 
 function finalCheck(){
     findDifferenceInTotalForVerb()

@@ -107,8 +107,13 @@ function getFuelRequirementForMassAndExtraFuel(mass){
     totalFuelRequirements += (Math.floor(mass/3))-2
 }
 
+var start = Date.now()
+
 for(var index = 0 ; index<inputArray.length; index++){
     getFuelRequirementForMassAndExtraFuel(inputArray[index])
 }
 
 console.log("The total fuel requirement is ", totalFuelRequirements)
+
+var end = Date.now();
+console.log("execution time", end-start);

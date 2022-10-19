@@ -113,8 +113,12 @@ function getFuelRequirementForMassAndExtraFuel(mass){
     totalFuelRequirements += totalFuelRequirementsWithRecursiveFuelAdded
 }
 
+var start = Date.now()
+
 for(var index = 0 ; index<inputArray.length; index++){
     getFuelRequirementForMassAndExtraFuel(inputArray[index])
 }
 
 console.log("The total fuel for mass and additional fuel requirements is ", totalFuelRequirements)
+var end = Date.now();
+console.log("execution time", end-start);

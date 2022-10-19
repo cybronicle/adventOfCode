@@ -135,6 +135,8 @@ function finalCheck(){
     checkIfResultOfIntCodeIsEqualToResult(19690720)
 }
 
+var start = Date.now()
+
 while(!checkWithin99()){
     resetModdifiedPuzzleInput()
     // decrementing the noun inputted for the test
@@ -143,3 +145,5 @@ while(!checkWithin99()){
 }
 
 finalCheck()
+var end = Date.now();
+console.log("execution time", end-start);

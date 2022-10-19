@@ -64,5 +64,9 @@ function readPuzzleInput(){
         index = index + 4;
     }
 }
+var start = Date.now()
 
 readPuzzleInput()
+
+var end = Date.now();
+console.log("execution time", end-start);
